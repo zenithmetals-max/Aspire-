@@ -1,1022 +1,253 @@
 <!doctype html>
-<html lang="en-AU">
+<html lang="en-AU" class="no-js">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Lane X Studio — Independent Digital Studio, Melbourne</title>
 <meta name="description" content="Lane X Studio is an independent digital studio in Melbourne. Considered design, clear strategy and search expertise for businesses going places.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=Inter+Tight:wght@400;500&display=swap" rel="stylesheet">
-<style>
-:root {
-  --ink: #1c1c1c;
-  --paper: #faf8f4;
-  --beige: #ece3d6;
-  --sand: #d8c7b1;
-  --mute: #6f675c;
-  --soft: #8a8073;
-  --rule: rgba(28, 28, 28, .16);
-  --serif: "Cormorant Garamond", Georgia, "Times New Roman", serif;
-  --sans: "Inter Tight", system-ui, sans-serif;
-}
-* { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; scroll-padding-top: 96px; }
-body {
-  background: var(--paper);
-  color: var(--ink);
-  font: 400 16px/1.7 var(--sans);
-  -webkit-font-smoothing: antialiased;
-  text-rendering: optimizeLegibility;
-}
-body::after {
-  content: "";
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-  z-index: 200;
-  opacity: .045;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-}
-img { display: block; width: 100%; height: auto; object-fit: cover; background: var(--beige); }
-a { color: inherit; text-decoration: none; }
-button, .btn { font: inherit; color: inherit; }
-::selection { background: var(--sand); color: var(--ink); }
-:focus { outline: none; }
-:focus-visible { outline: 1px solid currentColor; outline-offset: 3px; }
-.skip {
-  position: absolute;
-  left: 16px;
-  top: -40px;
-  background: var(--ink);
-  color: var(--paper);
-  padding: 8px 12px;
-  z-index: 300;
-}
-.skip:focus { top: 12px; }
-.wrap { width: min(1520px, 100%); margin-inline: auto; padding-inline: clamp(22px, 4.6vw, 84px); }
-.lbl {
-  font-size: 11px;
-  letter-spacing: .28em;
-  text-transform: uppercase;
-  color: var(--mute);
-  font-weight: 500;
-}
-.serif { font-family: var(--serif); font-weight: 400; letter-spacing: -.025em; }
-h1, h2, h3 { font-family: var(--serif); font-weight: 400; letter-spacing: -.03em; line-height: .92; text-wrap: balance; }
-p { text-wrap: pretty; }
-
-header {
-  position: sticky;
-  top: 0;
-  z-index: 100;
-  background: rgba(250, 248, 244, .92);
-  backdrop-filter: blur(16px);
-}
-.bar {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 24px;
-  min-height: 84px;
-  border-bottom: 1px solid var(--rule);
-}
-.logo {
-  font-family: var(--serif);
-  font-size: 26px;
-  letter-spacing: .04em;
-  font-weight: 500;
-  line-height: 1;
-}
-.logo i { font-style: italic; }
-nav { display: flex; gap: 34px; }
-nav a {
-  font-size: 11px;
-  letter-spacing: .22em;
-  text-transform: uppercase;
-  color: var(--ink);
-  opacity: .72;
-  transition: opacity .3s;
-}
-nav a:hover { opacity: 1; }
-.menu-btn {
-  display: none;
-  background: none;
-  border: 1px solid var(--ink);
-  padding: 10px 14px;
-  letter-spacing: .22em;
-  text-transform: uppercase;
-  font-size: 10px;
-  font-weight: 500;
-  cursor: pointer;
-}
-
-.mast {
-  margin-top: clamp(28px, 4vw, 48px);
-  color: var(--mute);
-  font-size: 13px;
-  letter-spacing: .08em;
-}
-.hero-lbl { margin-top: 28px; }
-.hero-grid {
-  display: grid;
-  grid-template-columns: minmax(0, .85fr) minmax(280px, 1.15fr);
-  gap: clamp(28px, 4vw, 72px);
-  align-items: start;
-  margin: clamp(28px, 4vw, 48px) 0 clamp(36px, 5vw, 64px);
-}
-.hero h1 { font-size: clamp(40px, 7.4vw, 112px); max-width: none; margin-top: 14px; }
-.hero h1 span { display: block; }
-.deck {
-  font-family: var(--serif);
-  font-style: italic;
-  font-weight: 400;
-  font-size: clamp(28px, 2.5vw, 40px);
-  line-height: 1.15;
-  letter-spacing: -.02em;
-  margin-bottom: 18px;
-}
-.hero-side p + p { margin-top: 14px; }
-.hero-side .closer {
-  font-family: var(--serif);
-  font-style: italic;
-  font-size: 22px;
-  line-height: 1.35;
-}
-.actions { display: flex; flex-wrap: wrap; align-items: center; gap: 18px 28px; margin-top: 28px; }
-.btn, button {
-  display: inline-block;
-  background: transparent;
-  border: 1px solid var(--ink);
-  padding: 16px 22px;
-  font-family: var(--sans);
-  font-size: 11px;
-  font-weight: 500;
-  letter-spacing: .18em;
-  text-transform: uppercase;
-  line-height: 1.45;
-  cursor: pointer;
-  transition: background .4s, color .4s;
-  max-width: 100%;
-  text-align: center;
-}
-.btn:hover, button:hover { background: var(--ink); color: var(--paper); }
-.textlink {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  font-size: 11px;
-  font-weight: 500;
-  letter-spacing: .18em;
-  text-transform: uppercase;
-  border-bottom: 1px solid currentColor;
-  padding-bottom: 4px;
-  width: fit-content;
-}
-.hero-media { overflow: hidden; }
-.hero-media img {
-  aspect-ratio: 16 / 8.4;
-  object-position: center 42%;
-  transform: scale(1.05);
-  animation: drift 14s ease-out forwards;
-}
-@keyframes drift { to { transform: scale(1); } }
-.hero-line {
-  display: flex;
-  justify-content: space-between;
-  align-items: baseline;
-  gap: 12px;
-  margin-top: 18px;
-  padding: 16px 0 8px;
-  border-top: 1px solid var(--rule);
-  font-size: 11px;
-  letter-spacing: .22em;
-  color: var(--mute);
-}
-.hero-line .slash { letter-spacing: 0; color: var(--sand); }
-
-.block { padding: clamp(92px, 11vw, 156px) 0; }
-.idea h2 { max-width: 9em; }
-.idea h2, .philosophy h2, .expertise h2, .difference h2, .work h2, .audience h2, .process h2, .review h2 {
-  font-size: clamp(46px, 6vw, 92px);
-  margin: 18px 0 0;
-}
-.statement {
-  font-family: var(--serif);
-  font-size: clamp(34px, 4.2vw, 64px);
-  line-height: 1.02;
-  letter-spacing: -.03em;
-  max-width: 14em;
-  margin: clamp(28px, 4vw, 48px) 0 clamp(36px, 5vw, 64px);
-}
-.idea-grid {
-  display: grid;
-  grid-template-columns: minmax(0, 1.45fr) minmax(220px, .7fr);
-  gap: clamp(28px, 4vw, 64px);
-  align-items: start;
-}
-.cols { columns: 2; column-gap: 36px; }
-.cols p { break-inside: avoid; margin-bottom: 1em; }
-.emph {
-  font-family: var(--serif);
-  font-style: italic;
-  font-size: 23px;
-  line-height: 1.35;
-}
-.idea-photos { display: grid; gap: 16px; }
-.idea-photos .tall { aspect-ratio: 4 / 5; object-position: center 40%; }
-.idea-photos .small { aspect-ratio: 1 / 1; width: 76%; margin-left: auto; object-position: center 30%; }
-
-.philosophy { background: var(--beige); }
-.phil-top {
-  display: grid;
-  grid-template-columns: minmax(0, 1.15fr) minmax(220px, .62fr);
-  gap: clamp(28px, 4vw, 72px);
-  align-items: end;
-}
-.phil-photo { aspect-ratio: 3 / 4; object-position: center 30%; }
-.phil-lead { margin-top: clamp(36px, 5vw, 64px); max-width: 11em; font-size: clamp(36px, 4.6vw, 70px); }
-.phil-lead .big {
-  font-family: var(--serif);
-  font-size: clamp(36px, 4.6vw, 70px);
-  line-height: 1.02;
-  letter-spacing: -.03em;
-}
-.phil-lead .big + .big { font-style: italic; color: #6d6256; margin-top: 10px; }
-.phil-body {
-  display: grid;
-  grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr);
-  gap: clamp(28px, 4vw, 72px);
-  margin-top: clamp(36px, 5vw, 64px);
-}
-.compare { display: grid; gap: 22px; }
-.compare p { padding-top: 16px; border-top: 1px solid var(--rule); }
-.sign {
-  font-family: var(--serif);
-  font-style: italic;
-  font-size: 28px;
-  line-height: 1.25;
-  margin: 8px 0;
-}
-
-.ex-intro {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(0, .85fr);
-  gap: clamp(28px, 4vw, 64px);
-  align-items: end;
-  margin-bottom: clamp(28px, 4vw, 48px);
-}
-.ex-photo { aspect-ratio: 16 / 10; object-position: center 45%; }
-.pair {
-  font-family: var(--serif);
-  font-style: italic;
-  font-size: clamp(28px, 2.6vw, 42px);
-  line-height: 1.12;
-  letter-spacing: -.02em;
-}
-.ex-intro h2 + .pair { margin-top: 22px; }
-.follow { margin-top: 14px; }
-.ex {
-  display: grid;
-  grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr);
-  grid-template-areas:
-    "title body"
-    "tag body"
-    "tag meta";
-  gap: 12px 48px;
-  padding: clamp(32px, 4vw, 52px) 0;
-  border-top: 1px solid var(--rule);
-}
-.ex:last-child { border-bottom: 1px solid var(--rule); }
-.ex h3 { grid-area: title; font-size: clamp(34px, 3.6vw, 56px); line-height: .95; align-self: end; }
-.ex .tagline { grid-area: tag; font-family: var(--serif); font-style: italic; font-size: clamp(22px, 2vw, 30px); line-height: 1.25; max-width: 16em; }
-.ex .body { grid-area: body; }
-.ex .body p + p { margin-top: 12px; }
-.ex .meta { grid-area: meta; display: flex; flex-direction: column; align-items: flex-start; gap: 18px; }
-.ex.flip {
-  grid-template-areas:
-    "body title"
-    "body tag"
-    "meta tag";
-}
-.tags { color: var(--mute); font-size: 13px; letter-spacing: .08em; }
-
-.difference { background: linear-gradient(var(--paper), var(--beige)); }
-.diff-intro h2 { max-width: 11em; }
-.principles { max-width: 820px; }
-.principles article:nth-child(even) { padding-left: clamp(20px, 6vw, 96px); }
-.principles article { padding: 28px 0 32px; border-top: 1px solid var(--rule); }
-.principles article:last-child { border-bottom: 1px solid var(--rule); }
-.principles h3 { font-size: clamp(30px, 3vw, 46px); line-height: 1.05; margin-bottom: 14px; }
-.principles p + p { margin-top: 12px; }
-.questions {
-  font-family: var(--serif);
-  font-style: italic;
-  font-size: clamp(22px, 2vw, 28px);
-  line-height: 1.35;
-}
-
-.work-head {
-  display: grid;
-  grid-template-columns: minmax(0, 1.1fr) minmax(0, .9fr);
-  gap: 24px 48px;
-  align-items: end;
-}
-.work-head .deck { margin: 0; max-width: 12em; }
-.work-intro {
-  columns: 2;
-  column-gap: 48px;
-  margin: clamp(32px, 4vw, 56px) 0 clamp(40px, 5vw, 72px);
-  max-width: 68em;
-}
-.work-intro p { break-inside: avoid; margin-bottom: 1em; }
-.case {
-  display: grid;
-  grid-template-columns: minmax(0, 1.15fr) minmax(280px, .85fr);
-  gap: clamp(24px, 4vw, 56px);
-  align-items: center;
-  padding-top: 8px;
-}
-.case-media { display: grid; grid-template-columns: 1.35fr .72fr; gap: 16px; align-items: end; }
-.case-media .primary { aspect-ratio: 4 / 5; object-position: center 55%; }
-.case-media .detail { aspect-ratio: 3 / 4; object-position: center; }
-.case h3 { font-size: clamp(36px, 4vw, 62px); margin: 8px 0 12px; }
-.case .tagline { font-family: var(--serif); font-style: italic; font-size: clamp(24px, 2.2vw, 32px); line-height: 1.2; margin-bottom: 16px; }
-.case .body p + p { margin-top: 12px; }
-.case .textlink { margin-top: 22px; }
-.soon {
-  margin-top: 36px;
-  padding-top: 18px;
-  border-top: 1px solid var(--rule);
-  color: var(--mute);
-  font-size: 15px;
-}
-
-.aud-head {
-  display: grid;
-  grid-template-columns: minmax(0, 1.35fr) minmax(0, .75fr);
-  gap: 28px 48px;
-  align-items: end;
-  margin-bottom: clamp(36px, 5vw, 64px);
-}
-.aud-head .deck { margin-bottom: 12px; }
-.quad {
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  border-top: 1px solid var(--ink);
-}
-.quad article { padding: 28px 28px 0 0; }
-.quad article + article { padding-left: 28px; border-left: 1px solid var(--rule); }
-.quad h3 { font-size: clamp(26px, 2.1vw, 34px); line-height: 1.05; margin-bottom: 16px; min-height: 2.1em; }
-.quad p { font-size: 15px; line-height: 1.65; color: #3a342e; }
-
-.process { background: var(--beige); }
-.proc-head { margin-bottom: clamp(36px, 5vw, 64px); }
-.proc-head h2 { max-width: 10em; }
-.proc-head .deck { margin-top: 20px; }
-.steps { list-style: none; border-bottom: 1px solid var(--ink); }
-.steps li {
-  display: grid;
-  grid-template-columns: minmax(0, 1.15fr) minmax(0, .85fr);
-  gap: 24px 48px;
-  align-items: baseline;
-  padding: 30px 0;
-  border-top: 1px solid var(--ink);
-}
-.steps h3 { font-size: clamp(30px, 3.2vw, 48px); }
-.steps h3 span { font-style: italic; color: #7d6e5e; margin-right: .15em; }
-.steps p { color: #3f382f; }
-
-.review { background: var(--beige); }
-.review-card {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-  gap: clamp(32px, 5vw, 80px);
-  background: var(--paper);
-  border: 1px solid var(--rule);
-  padding: clamp(28px, 4.5vw, 76px);
-}
-.stanza { margin: 28px 0 8px; }
-.stanza p {
-  font-family: var(--serif);
-  font-size: clamp(26px, 2.3vw, 36px);
-  line-height: 1.16;
-  letter-spacing: -.02em;
-  margin-bottom: 8px;
-}
-.resolve {
-  font-family: var(--serif);
-  font-style: italic;
-  font-size: clamp(28px, 2.6vw, 40px);
-  line-height: 1.15;
-  margin: 22px 0 18px;
-}
-.review-copy p + p { margin-top: 12px; }
-.review-copy .stanza p { margin-top: 0; }
-form { display: grid; grid-template-columns: 1fr 1fr; gap: 0 28px; align-content: start; }
-.field { border-bottom: 1px solid var(--rule); padding: 18px 0 8px; transition: border-color .3s; }
-.field.full { grid-column: 1 / -1; }
-.field:focus-within { border-bottom-color: var(--ink); }
-.field label {
-  display: block;
-  font-size: 10px;
-  letter-spacing: .26em;
-  text-transform: uppercase;
-  color: var(--mute);
-}
-.field input, .field textarea {
-  width: 100%;
-  border: 0;
-  background: transparent;
-  color: var(--ink);
-  font: 400 22px/1.4 var(--serif);
-  padding: 8px 0 2px;
-  border-radius: 0;
-}
-.field textarea { min-height: 96px; resize: vertical; }
-.form-foot { grid-column: 1 / -1; margin-top: 28px; display: flex; flex-direction: column; align-items: flex-start; gap: 16px; }
-.form-note, .place { color: var(--mute); font-size: 13px; line-height: 1.5; }
-.form-ok {
-  font-family: var(--serif);
-  font-style: italic;
-  font-size: 22px;
-  line-height: 1.35;
-}
-
-.finale {
-  background: var(--ink);
-  color: var(--beige);
-  padding: clamp(100px, 12vw, 170px) 0 clamp(48px, 6vw, 80px);
-}
-.finale .lbl { color: #b7aa9b; }
-.finale h2 { font-size: clamp(56px, 8vw, 124px); color: var(--paper); margin-top: 16px; }
-.finale .line {
-  font-family: var(--serif);
-  font-weight: 400;
-  font-size: clamp(32px, 4vw, 58px);
-  line-height: 1.05;
-  letter-spacing: -.03em;
-  color: var(--sand);
-  max-width: 14em;
-}
-.finale .line.step { margin-top: 18px; padding-left: clamp(0px, 8vw, 120px); }
-.finale .line + .prose { margin-top: 36px; }
-.finale .prose { max-width: 38em; color: #e6dccf; }
-.finale .prose p + p { margin-top: 12px; }
-.signoff {
-  margin-top: 48px;
-  font-family: var(--serif);
-  font-size: clamp(28px, 3vw, 40px);
-  letter-spacing: .08em;
-  color: var(--paper);
-}
-.finale .tag { margin-top: 8px; color: var(--sand); font-size: 16px; }
-.finale .btn {
-  margin-top: 32px;
-  border-color: var(--beige);
-  color: var(--beige);
-}
-.finale .btn:hover { background: var(--beige); color: var(--ink); }
-
-footer {
-  background: var(--ink);
-  color: var(--beige);
-  padding: 12px 0 36px;
-}
-.wordmark {
-  font-family: var(--serif);
-  font-weight: 400;
-  font-size: clamp(72px, 12vw, 168px);
-  line-height: .82;
-  letter-spacing: -.035em;
-  color: var(--paper);
-}
-.wordmark i { font-style: italic; color: var(--sand); }
-.foot {
-  display: grid;
-  grid-template-columns: minmax(0, 1.1fr) minmax(0, .9fr);
-  gap: 28px 48px;
-  align-items: end;
-  border-top: 1px solid rgba(236, 227, 214, .2);
-  margin-top: 28px;
-  padding-top: 28px;
-}
-.foot p + p { margin-top: 10px; }
-.disciplines { letter-spacing: .14em; text-transform: uppercase; font-size: 12px; color: #cbbfae; }
-footer a { border-bottom: 1px solid transparent; }
-footer a:hover { border-bottom-color: currentColor; }
-.legal {
-  margin-top: 48px;
-  display: flex;
-  justify-content: space-between;
-  gap: 12px 24px;
-  flex-wrap: wrap;
-  font-size: 11px;
-  letter-spacing: .16em;
-  text-transform: uppercase;
-  color: #a89886;
-}
-
-.rev { opacity: 0; transform: translateY(22px); transition: opacity 1.05s cubic-bezier(.2,.7,.2,1), transform 1.05s cubic-bezier(.2,.7,.2,1); }
-.rev.on { opacity: 1; transform: none; }
-html.shot .rev { opacity: 1; transform: none; transition: none; }
-html.shot .hero-media img { animation: none; transform: none; }
-
-@media (max-width: 980px) {
-  .menu-btn { display: inline-block; position: relative; z-index: 120; }
-  nav {
-    position: fixed;
-    inset: 0;
-    background: var(--paper);
-    flex-direction: column;
-    justify-content: center;
-    gap: 6px;
-    padding: 110px 32px 48px;
-    transform: translateY(-102%);
-    transition: transform .45s cubic-bezier(.2,.7,.2,1);
-    z-index: 90;
-  }
-  body.nav-open nav { transform: none; }
-  body.nav-open { overflow: hidden; }
-  nav a {
-    font-family: var(--serif);
-    font-size: clamp(36px, 8vw, 52px);
-    letter-spacing: -.02em;
-    text-transform: none;
-    opacity: 1;
-    line-height: 1.15;
-  }
-  .hero-grid, .idea-grid, .phil-top, .phil-body, .ex-intro, .diff, .work-head, .case, .aud-head, .review-card, .foot {
-    grid-template-columns: 1fr;
-  }
-  .cols, .work-intro { columns: 1; }
-  .ex, .ex.flip {
-    grid-template-columns: 1fr;
-    grid-template-areas: "title" "tag" "body" "meta";
-    gap: 14px;
-  }
-  .steps li { grid-template-columns: 1fr; gap: 8px; }
-  .quad { grid-template-columns: 1fr 1fr; }
-  .quad article { border-left: 0; padding-left: 0; padding-right: 18px; }
-  .quad article:nth-child(even) { padding-left: 18px; padding-right: 0; border-left: 1px solid var(--rule); }
-  .quad article:nth-child(n + 3) { border-top: 1px solid var(--rule); margin-top: 8px; }
-  .quad h3 { min-height: 0; }
-  .principles { max-width: none; }
-  .principles article:nth-child(even) { padding-left: 0; }
-  .case-media { grid-template-columns: 1fr .62fr; }
-  .finale .line.step { padding-left: 0; }
-  .hero h1 { max-width: none; }
-}
-@media (max-width: 640px) {
-  .hero h1 { font-size: 38px; }
-  .hero-media img { aspect-ratio: 4 / 5; }
-  .hero-line { flex-wrap: wrap; letter-spacing: .12em; font-size: 10px; row-gap: 6px; }
-  .idea-photos .small { width: 68%; }
-  .case-media { grid-template-columns: 1fr; }
-  .case-media .detail { width: 72%; margin-left: auto; }
-  .quad { grid-template-columns: 1fr; }
-  .quad article, .quad article:nth-child(even) { padding-left: 0; padding-right: 0; border-left: 0; }
-  .quad article + article { border-top: 1px solid var(--rule); margin-top: 8px; padding-top: 22px; }
-  form { grid-template-columns: 1fr; }
-  .field.full { grid-column: auto; }
-  .legal { flex-direction: column; }
-  .wordmark { font-size: 64px; }
-  .btn, button { letter-spacing: .12em; padding: 14px 16px; }
-}
-@media (prefers-reduced-motion: reduce) {
-  html { scroll-behavior: auto; }
-  .rev { opacity: 1; transform: none; transition: none; }
-  .hero-media img { animation: none; transform: none; }
-  nav { transition: none; }
-}
-</style>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;1,9..144,300;1,9..144,400&family=Inter+Tight:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<script>document.documentElement.className="js";setTimeout(function(){document.documentElement.classList.add("ready")},3500)</script>
 </head>
 <body>
-<a class="skip" href="#top">Skip to content</a>
-<header>
-  <div class="wrap bar">
-    <a class="logo" href="#top">LANE <i>X</i> STUDIO</a>
-    <nav id="site-nav" aria-label="Primary">
-      <a href="#expertise">Expertise</a>
-      <a href="#work">Selected Work</a>
-      <a href="#studio">Studio</a>
-      <a href="#contact">Contact</a>
-    </nav>
-    <button class="menu-btn" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
-  </div>
+<header class="nav" id="nav">
+  <a class="logo" href="#top" aria-label="Lane X Studio, home"><span class="wm wm-nav" aria-label="Lane X Studio"><span class="w"><span class="lt">L</span><span class="lt">a</span><span class="lt">n</span><span class="lt">e</span></span><span class="lt xw"><svg class="xm" viewBox="0 0 100 100" aria-hidden="true"><line class="x1" x1="14" y1="10" x2="86" y2="90" pathLength="1"/><line class="x2" x1="86" y1="10" x2="14" y2="90" pathLength="1"/></svg></span><span class="w"><span class="lt">S</span><span class="lt">t</span><span class="lt">u</span><span class="lt">d</span><span class="lt">i</span><span class="lt">o</span></span></span></a>
+  <nav id="site-nav">
+    <a href="#expertise">Expertise</a><a href="#work">Selected Work</a><a href="#studio">Studio</a><a href="#contact">Contact</a>
+  </nav>
+  <a class="nav-cta" href="#review">Free Review</a>
+  <button class="menu-btn" aria-expanded="false" aria-controls="site-nav">Menu</button>
 </header>
-
 <main id="top">
-  <section class="hero">
-    <div class="wrap">
-      <p class="mast">Independent Digital Studio — Melbourne, Australia</p>
-      <p class="lbl hero-lbl">01 — HERO</p>
-      <h1><span>FOR BUSINESSES </span><span>GOING PLACES.</span></h1>
-      <div class="hero-grid">
-        <p class="deck">You’ve built something worth finding.</p>
-        <div class="hero-side">
-          <p>Your reputation was earned in the real world. Your digital presence should do it justice.</p>
-          <p>We bring together considered design, clear strategy and search expertise to help ambitious businesses turn what they’ve built into something people can discover, understand and trust.</p>
-          <p class="closer">Not just another website. A better way to present your business to the world.</p>
-          <div class="actions">
-            <a class="btn" href="#review">Let’s Talk About Your Business →</a>
-            <a class="textlink" href="#work">Explore Our Work ↗</a>
-          </div>
-        </div>
-      </div>
-      <figure class="hero-media">
-        <img src="img/p3.jpg" alt="Glass towers rising above the street, seen from below">
-      </figure>
-      <p class="hero-line"><span>WEBSITES</span><span class="slash" aria-hidden="true"> / </span><span>SEARCH</span><span class="slash" aria-hidden="true"> / </span><span>STRATEGY</span><span class="slash" aria-hidden="true"> / </span><span>DIGITAL</span></p>
-    </div>
-  </section>
 
-  <section class="block idea" id="idea">
-    <div class="wrap rev">
-      <p class="lbl">02 — THE BIG IDEA</p>
-      <div class="idea-head"><h2>A BETTER FIRST IMPRESSION</h2></div>
-      <p class="statement">The next customer hasn’t met you yet.</p>
-      <div class="idea-grid">
-        <div class="cols">
-          <p>They haven’t seen the care you put into your work. They don’t know how many years you’ve spent mastering your trade. They haven’t heard the recommendations your existing customers give you.</p>
-          <p>All they have is what they can find online.</p>
-          <p>A Google listing. A few photographs. Maybe a website.</p>
-          <p>And in those few moments, they’re deciding whether to call you, keep looking or choose someone else.</p>
-          <p class="emph">That’s the moment we design for.</p>
-          <p>We help businesses translate their real-world reputation into a digital experience that gives people a reason to choose them.</p>
-          <p class="emph">Because being good at what you do is one thing.</p>
-          <p class="emph">Making that obvious to someone who’s never met you is another.</p>
-        </div>
-        <div class="idea-photos">
-          <img class="tall" src="img/p2.jpg" alt="A quiet room with a long wooden table and tall open doors">
-          <img class="small" src="img/p6.jpg" alt="Hands holding a small book beside a bright window">
-        </div>
+<section class="hero"><svg class="hero-x" viewBox="0 0 100 100" aria-hidden="true"><line x1="14" y1="10" x2="86" y2="90"/><line x1="86" y1="10" x2="14" y2="90"/></svg>
+  <div class="wrap">
+    <div class="meta rv"><span>01 — Hero</span><span>Independent Digital Studio — Melbourne, Australia</span></div>
+    <h1 class="display"><span class="ln"><span>For businesses</span></span><span class="ln"><span><em>going</em> places.</span></span></h1>
+    <div class="hero-grid">
+      <p class="lead rv">You’ve built something worth finding.</p>
+      <div class="hero-copy rv">
+        <p>Your reputation was earned in the real world. Your digital presence should do it justice.</p>
+        <p>We bring together considered design, clear strategy and search expertise to help ambitious businesses turn what they’ve built into something people can discover, understand and trust.</p>
+        <p class="strong">Not just another website. A better way to present your business to the world.</p>
+        <div class="ctas"><a class="btn" href="#review"><span>Let’s Talk About Your Business</span><b>→</b></a><a class="tl" href="#work">Explore Our Work ↗</a></div>
       </div>
     </div>
-  </section>
+  </div>
+  <figure class="bleed hero-img"><img src="img/p3.jpg" alt="Glass towers rising above the street, seen from below" fetchpriority="high"></figure>
+  <div class="ticker" aria-hidden="true"><div><span>Websites</span><i>/</i><span>Search</span><i>/</i><span>Strategy</span><i>/</i><span>Digital</span><i>/</i><span>Websites</span><i>/</i><span>Search</span><i>/</i><span>Strategy</span><i>/</i><span>Digital</span><i>/</i></div></div>
+  <p class="sr">WEBSITES / SEARCH / STRATEGY / DIGITAL</p>
+</section>
 
-  <section class="block philosophy" id="philosophy">
-    <div class="wrap rev">
-      <div class="phil-top">
-        <div>
-          <p class="lbl">03 — OUR PHILOSOPHY</p>
-          <h2>BEYOND THE SCREEN</h2>
-        </div>
-        <figure>
-          <img class="phil-photo" src="img/p8.jpg" alt="A geometric stone atrium with a single person on the stairs">
-        </figure>
-      </div>
-      <div class="phil-lead">
-        <p class="big">A website isn’t the business.</p>
-        <p class="big">But it can change how people see it.</p>
-      </div>
-      <div class="phil-body">
-        <div>
-          <p>Think about the difference between two businesses offering the same service.</p>
-          <div class="compare">
-            <p>One has a name, a phone number and a handful of photographs.</p>
-            <p>The other explains exactly what it does, presents its work beautifully, answers the questions customers are already asking and makes the next step effortless.</p>
-          </div>
-          <p class="follow">Both might deliver excellent work.</p>
-          <p>But only one has made that quality easy to recognise.</p>
-          <p class="sign">That’s where Lane X comes in.</p>
-        </div>
-        <div>
-          <p>We don’t believe digital success begins with choosing colours or templates.</p>
-          <p>It begins with understanding what makes a business worth choosing—and finding the clearest, most compelling way to communicate it.</p>
-        </div>
+<section class="sec" id="idea">
+  <div class="wrap">
+    <div class="head rv"><span class="num">02</span><span class="lbl">The Big Idea</span><h2>A better first impression</h2></div>
+    <p class="statement rv">The next customer hasn’t <em>met you</em> yet.</p>
+    <div class="cols">
+      <figure class="ph tall rv"><img src="img/p2.jpg" alt="A bright, minimal lounge with soft chairs and a floor lamp" loading="lazy"></figure>
+      <div class="prose rv">
+        <p>They haven’t seen the care you put into your work. They don’t know how many years you’ve spent mastering your trade. They haven’t heard the recommendations your existing customers give you.</p>
+        <p>All they have is what they can find online.</p>
+        <p>A Google listing. A few photographs. Maybe a website.</p>
+        <p>And in those few moments, they’re deciding whether to call you, keep looking or choose someone else.</p>
+        <p class="pull">That’s the moment we design for.</p>
+        <p>We help businesses translate their real-world reputation into a digital experience that gives people a reason to choose them.</p>
+        <p class="pull sm">Because being good at what you do is one thing.<br>Making that obvious to someone who’s never met you is another.</p>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <section class="block expertise" id="expertise">
-    <div class="wrap">
-      <div class="ex-intro rev">
-        <div>
-          <p class="lbl">04 — WHAT WE CREATE</p>
-          <h2>OUR EXPERTISE</h2>
-          <p class="pair">Different disciplines.</p>
-          <p class="pair">One connected experience.</p>
-        </div>
-        <div>
-          <p>A website, a Google search result, a service page and an advertisement shouldn’t feel like separate pieces.</p>
-          <p class="follow">They should work together to tell one convincing story.</p>
-          <figure style="margin-top:28px">
-            <img class="ex-photo" src="img/p10.jpg" alt="An open laptop on a pale desk in a bright workspace">
-          </figure>
-        </div>
-      </div>
-
-      <article class="ex rev" id="web">
-        <h3>01 / DIGITAL EXPERIENCES</h3>
-        <p class="tagline">Websites with something to say.</p>
-        <div class="body">
-          <p>Not another collection of generic sections and stock photographs.</p>
-          <p>We create considered digital spaces that reflect the business behind them—its work, personality, standards and ambitions.</p>
-          <p>Every page has a purpose. Every detail has a reason to exist.</p>
-          <p>From the first impression to the final enquiry, we think about what visitors need to see, understand and do.</p>
-        </div>
-        <div class="meta">
-          <p class="tags">Website Design / Development / Landing Pages / User Experience</p>
-          <a class="textlink" href="#web">Explore Web Design ↗</a>
-        </div>
-      </article>
-
-      <article class="ex flip rev" id="search">
-        <h3>02 / SEARCH &amp; DISCOVERY</h3>
-        <p class="tagline">Being exceptional means little if nobody finds you.</p>
-        <div class="body">
-          <p>When someone searches for a service you provide, your business deserves the opportunity to be considered.</p>
-          <p>We work on the foundations that help search engines understand your website and help potential customers find relevant information.</p>
-          <p>That means useful service pages, clear website structure, local search optimisation and content built around genuine customer questions.</p>
-          <p>Not keyword stuffing. Not shortcuts. Not promises nobody can guarantee.</p>
-        </div>
-        <div class="meta">
-          <p class="tags">Local SEO / Technical SEO / Search Strategy / Google Business Profile</p>
-          <a class="textlink" href="#search">Explore Search ↗</a>
-        </div>
-      </article>
-
-      <article class="ex rev" id="strategy">
-        <h3>03 / DIGITAL STRATEGY</h3>
-        <p class="tagline">The right move matters more than the next move.</p>
-        <div class="body">
-          <p>Not every business needs a new website.</p>
-          <p>Some need a better way to capture enquiries. Others need clearer service information, improved local visibility or a more convincing portfolio.</p>
-          <p>We look at what’s already working, what may be holding you back and where your next investment could make the most sense.</p>
-          <p>Because spending more isn’t automatically the same as moving forward.</p>
-        </div>
-        <div class="meta">
-          <p class="tags">Digital Reviews / Website Strategy / Conversion Improvements / Growth Planning</p>
-          <a class="textlink" href="#strategy">Explore Strategy ↗</a>
-        </div>
-      </article>
-
-      <article class="ex flip rev" id="content">
-        <h3>04 / CONTENT &amp; BRAND PRESENCE</h3>
-        <p class="tagline">Give people a reason to remember you.</p>
-        <div class="body">
-          <p>The way a business presents itself changes how people perceive its value.</p>
-          <p>We bring structure, language and visual consistency to the way you communicate—from the words on your homepage to the presentation of your services and projects.</p>
-          <p>So customers don’t just see what you do.</p>
-          <p>They begin to understand why it matters.</p>
-        </div>
-        <div class="meta">
-          <p class="tags">Website Copywriting / Content Strategy / Visual Direction / Brand Presentation</p>
-          <a class="textlink" href="#content">Explore Content ↗</a>
-        </div>
-      </article>
+<section class="sec sand" id="philosophy">
+  <div class="wrap">
+    <div class="head rv"><span class="num">03</span><span class="lbl">Our Philosophy</span><h2>Beyond the screen</h2></div>
+    <p class="statement rv">A website isn’t the business.<br><em>But it can change how people see it.</em></p>
+  </div>
+  <figure class="bleed par"><img src="img/p8.jpg" alt="A meeting room with a long table and city views" loading="lazy"></figure>
+  <div class="wrap">
+    <p class="intro rv">Think about the difference between two businesses offering the same service.</p>
+    <div class="versus">
+      <div class="rv"><span class="tagno">A</span><p>One has a name, a phone number and a handful of photographs.</p></div>
+      <div class="rv"><span class="tagno">B</span><p>The other explains exactly what it does, presents its work beautifully, answers the questions customers are already asking and makes the next step effortless.</p></div>
     </div>
-  </section>
-
-  <section class="block difference" id="studio">
-    <div class="wrap">
-      <div class="diff">
-        <div class="diff-intro rev">
-          <p class="lbl">05 — OUR DIFFERENCE</p>
-          <h2>THE THINKING BEHIND THE WORK</h2>
-        </div>
-        <div class="principles rev">
-          <article>
-            <h3>We ask better questions before building better websites.</h3>
-            <p>Anyone can ask what colours you like.</p>
-            <p>We’d rather know what makes customers choose you.</p>
-            <p class="questions">What work are you most proud of? Which services matter most to your business? What questions do people ask before hiring you? Where do your best customers come from? And what should someone understand about you within the first thirty seconds?</p>
-            <p>Those answers shape everything that follows.</p>
-          </article>
-          <article>
-            <h3>We look beyond the brief.</h3>
-            <p>A request for a website is often the beginning of a bigger conversation about reputation, visibility, customer confidence and business goals.</p>
-          </article>
-          <article>
-            <h3>We recommend before we sell.</h3>
-            <p>If a small improvement makes more sense than a complete rebuild, we’ll explain why. The recommendation should fit the problem, not the other way around.</p>
-          </article>
-          <article>
-            <h3>We care about what happens after the click.</h3>
-            <p>A visitor landing on your website isn’t the finish line. What they understand, where they go next and whether they feel confident enough to contact you matter just as much.</p>
-          </article>
-          <article>
-            <h3>We build with the future in mind.</h3>
-            <p>Your business won’t stand still. Your digital presence should be organised so it can develop alongside your services, portfolio and ambitions.</p>
-          </article>
-        </div>
+    <div class="cols narrow">
+      <p class="pull rv">Both might deliver excellent work.<br>But only one has made that quality easy to recognise.</p>
+      <div class="prose rv">
+        <p class="sig">That’s where Lane X comes in.</p>
+        <p>We don’t believe digital success begins with choosing colours or templates.</p>
+        <p>It begins with understanding what makes a business worth choosing—and finding the clearest, most compelling way to communicate it.</p>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <section class="block work" id="work">
-    <div class="wrap">
-      <div class="rev">
-        <p class="lbl">06 — SELECTED WORK</p>
-        <div class="work-head">
-          <h2>WORK WITH PURPOSE</h2>
-          <p class="deck">The details tell the story.</p>
-        </div>
-        <div class="work-intro">
-          <p>Behind every business is work worth showing.</p>
-          <p>The precision of a bricklayer’s finish. The atmosphere of a neighbourhood restaurant. The transformation behind a renovation. The experience that separates one professional from another.</p>
-          <p>These are the things customers should be able to see for themselves.</p>
-          <p>Our approach is to bring those details forward and give them the presentation they deserve.</p>
-        </div>
-      </div>
-      <article class="case rev" id="bay-to-bay">
-        <div class="case-media">
-          <img class="primary" src="img/p5.jpg" alt="A brick archway catching warm light">
-          <img class="detail" src="img/p4.jpg" alt="Close detail of a warm, hand-finished wall">
-        </div>
-        <div>
-          <h3>BAY TO BAY BRICK &amp; BLOCKLAYING</h3>
-          <p class="tagline">Making craftsmanship visible.</p>
-          <p class="tags">Website Design / Service Presentation / Local Search Foundations</p>
-          <div class="body">
-            <p>For a bricklaying business, trust begins long before someone requests a quote.</p>
-            <p>Potential customers want to understand the type of work undertaken, see examples of completed projects and feel confident that they’re speaking to someone capable of delivering.</p>
-            <p>This website project focuses on bringing those essentials together through clear service information, project-led imagery and a straightforward path to enquiry.</p>
-          </div>
-          <a class="textlink" href="#bay-to-bay">View Project ↗</a>
-        </div>
-      </article>
-      <p class="soon">Additional selected work will be published as projects are completed.</p>
+<section class="sec" id="expertise">
+  <div class="wrap">
+    <div class="head rv"><span class="num">04</span><span class="lbl">What We Create</span><h2>Our expertise</h2></div>
+    <div class="cols">
+      <p class="statement sm rv">Different disciplines.<br><em>One connected experience.</em></p>
+      <div class="prose rv"><p>A website, a Google search result, a service page and an advertisement shouldn’t feel like separate pieces.</p><p class="strong">They should work together to tell one convincing story.</p></div>
     </div>
-  </section>
+    <div class="acc">
+      <details class="rv" open id="web"><summary><span class="an">01</span><span class="at">Digital Experiences</span><span class="ag">Websites with something to say.</span><span class="ax"></span></summary>
+        <div class="ab"><div><p>Not another collection of generic sections and stock photographs.</p><p>We create considered digital spaces that reflect the business behind them—its work, personality, standards and ambitions.</p><p>Every page has a purpose. Every detail has a reason to exist.</p><p>From the first impression to the final enquiry, we think about what visitors need to see, understand and do.</p></div><div><p class="tags">Website Design / Development / Landing Pages / User Experience</p><a class="tl" href="#review">Explore Web Design ↗</a></div></div></details>
+      <details class="rv" id="search"><summary><span class="an">02</span><span class="at">Search &amp; Discovery</span><span class="ag">Being exceptional means little if nobody finds you.</span><span class="ax"></span></summary>
+        <div class="ab"><div><p>When someone searches for a service you provide, your business deserves the opportunity to be considered.</p><p>We work on the foundations that help search engines understand your website and help potential customers find relevant information.</p><p>That means useful service pages, clear website structure, local search optimisation and content built around genuine customer questions.</p><p>Not keyword stuffing. Not shortcuts. Not promises nobody can guarantee.</p></div><div><p class="tags">Local SEO / Technical SEO / Search Strategy / Google Business Profile</p><a class="tl" href="#review">Explore Search ↗</a></div></div></details>
+      <details class="rv" id="strategy"><summary><span class="an">03</span><span class="at">Digital Strategy</span><span class="ag">The right move matters more than the next move.</span><span class="ax"></span></summary>
+        <div class="ab"><div><p>Not every business needs a new website.</p><p>Some need a better way to capture enquiries. Others need clearer service information, improved local visibility or a more convincing portfolio.</p><p>We look at what’s already working, what may be holding you back and where your next investment could make the most sense.</p><p>Because spending more isn’t automatically the same as moving forward.</p></div><div><p class="tags">Digital Reviews / Website Strategy / Conversion Improvements / Growth Planning</p><a class="tl" href="#review">Explore Strategy ↗</a></div></div></details>
+      <details class="rv" id="content"><summary><span class="an">04</span><span class="at">Content &amp; Brand Presence</span><span class="ag">Give people a reason to remember you.</span><span class="ax"></span></summary>
+        <div class="ab"><div><p>The way a business presents itself changes how people perceive its value.</p><p>We bring structure, language and visual consistency to the way you communicate—from the words on your homepage to the presentation of your services and projects.</p><p>So customers don’t just see what you do.</p><p>They begin to understand why it matters.</p></div><div><p class="tags">Website Copywriting / Content Strategy / Visual Direction / Brand Presentation</p><a class="tl" href="#review">Explore Content ↗</a></div></div></details>
+    </div>
+  </div>
+</section>
 
-  <section class="block audience" id="audience">
-    <div class="wrap rev">
-      <p class="lbl">07 — WHO WE WORK WITH</p>
-      <div class="aud-head">
-        <h2>BUILT FOR THE PEOPLE BUILDING BUSINESSES</h2>
-        <div>
-          <p class="deck">For people who take their work seriously.</p>
-          <p>We’re interested in businesses that care about what they deliver—and want their online presence to reflect that.</p>
-        </div>
-      </div>
-      <div class="quad">
-        <article>
-          <h3>THE TRADESPERSON</h3>
-          <p>You’ve spent years developing your skills. Your website should help customers see the quality behind your work, not reduce everything to a phone number and a price.</p>
-        </article>
-        <article>
-          <h3>THE RESTAURANT OWNER</h3>
-          <p>You’ve created an experience people come back for. Your digital presence should capture the atmosphere, food and personality that make your place worth visiting.</p>
-        </article>
-        <article>
-          <h3>THE SERVICE PROFESSIONAL</h3>
-          <p>People aren’t simply buying a service. They’re deciding whom to trust. Your website should make your expertise, approach and value easy to understand.</p>
-        </article>
-        <article>
-          <h3>THE GROWING BUSINESS</h3>
-          <p>What worked when you started may not reflect where your business is today. We help bring your digital presence closer to the business you’ve become.</p>
-        </article>
+<section class="sec dark" id="studio">
+  <div class="wrap">
+    <div class="head rv"><span class="num">05</span><span class="lbl">Our Difference</span><h2>The thinking behind the work</h2></div>
+    <div class="diff-lead">
+      <h3 class="statement rv">We ask better questions before building <em>better websites.</em></h3>
+      <div class="prose rv">
+        <p>Anyone can ask what colours you like.</p>
+        <p class="strong">We’d rather know what makes customers choose you.</p>
       </div>
     </div>
-  </section>
+    <p class="questions rv">What work are you most proud of? Which services matter most to your business? What questions do people ask before hiring you? Where do your best customers come from? And what should someone understand about you within the first thirty seconds?</p>
+    <p class="after rv">Those answers shape everything that follows.</p>
+    <ol class="principles">
+      <li class="rv"><span>i.</span><h3>We look beyond the brief.</h3><p>A request for a website is often the beginning of a bigger conversation about reputation, visibility, customer confidence and business goals.</p></li>
+      <li class="rv"><span>ii.</span><h3>We recommend before we sell.</h3><p>If a small improvement makes more sense than a complete rebuild, we’ll explain why. The recommendation should fit the problem, not the other way around.</p></li>
+      <li class="rv"><span>iii.</span><h3>We care about what happens after the click.</h3><p>A visitor landing on your website isn’t the finish line. What they understand, where they go next and whether they feel confident enough to contact you matter just as much.</p></li>
+      <li class="rv"><span>iv.</span><h3>We build with the future in mind.</h3><p>Your business won’t stand still. Your digital presence should be organised so it can develop alongside your services, portfolio and ambitions.</p></li>
+    </ol>
+  </div>
+</section>
 
-  <section class="block process" id="process">
-    <div class="wrap rev">
-      <p class="lbl">08 — OUR PROCESS</p>
-      <div class="proc-head">
-        <h2>FROM CONVERSATION TO CREATION</h2>
-        <p class="deck">Thoughtful from the first conversation.</p>
+<section class="sec" id="work">
+  <div class="wrap">
+    <div class="head rv"><span class="num">06</span><span class="lbl">Selected Work</span><h2>Work with purpose</h2></div>
+    <div class="cols">
+      <p class="statement sm rv">The details <em>tell the story.</em></p>
+      <div class="prose rv">
+        <p>Behind every business is work worth showing.</p>
+        <p>The precision of a bricklayer’s finish. The atmosphere of a neighbourhood restaurant. The transformation behind a renovation. The experience that separates one professional from another.</p>
+        <p>These are the things customers should be able to see for themselves.</p>
+        <p>Our approach is to bring those details forward and give them the presentation they deserve.</p>
+      </div>
+    </div>
+  </div>
+  <article class="case" id="bay-to-bay">
+    <figure class="bleed case-img"><img src="img/p10.jpg" alt="A laptop on a reflective desk displaying a website dashboard" loading="lazy"><figcaption><span>Case 01</span><span>Website Design / Service Presentation / Local Search Foundations</span></figcaption></figure>
+    <div class="wrap case-body">
+      <div class="rv"><h3 class="case-title">Bay to Bay<br>Brick &amp; Blocklaying</h3><p class="case-tag">Making craftsmanship visible.</p></div>
+      <div class="prose rv">
+        <p>For a bricklaying business, trust begins long before someone requests a quote.</p>
+        <p>Potential customers want to understand the type of work undertaken, see examples of completed projects and feel confident that they’re speaking to someone capable of delivering.</p>
+        <p>This website project focuses on bringing those essentials together through clear service information, project-led imagery and a straightforward path to enquiry.</p>
+        <a class="tl" href="#review">View Project ↗</a>
+      </div>
+      <figure class="ph detail rv"><img src="img/p4.jpg" alt="An open-plan studio with concrete ceilings and tall windows" loading="lazy"></figure>
+    </div>
+  </article>
+  <div class="wrap"><p class="soon rv"><span>Case 02 —</span> Additional selected work will be published as projects are completed.</p></div>
+</section>
+
+<section class="sec beige" id="audience">
+  <div class="wrap">
+    <div class="head rv"><span class="num">07</span><span class="lbl">Who We Work With</span><h2>Built for the people building businesses</h2></div>
+    <div class="cols">
+      <p class="statement sm rv">For people who take their work <em>seriously.</em></p>
+      <p class="prose rv">We’re interested in businesses that care about what they deliver—and want their online presence to reflect that.</p>
+    </div>
+    <div class="rows">
+      <div class="row rv"><span class="rn">A</span><h3>The Tradesperson</h3><p>You’ve spent years developing your skills. Your website should help customers see the quality behind your work, not reduce everything to a phone number and a price.</p></div>
+      <div class="row rv"><span class="rn">B</span><h3>The Restaurant Owner</h3><p>You’ve created an experience people come back for. Your digital presence should capture the atmosphere, food and personality that make your place worth visiting.</p></div>
+      <div class="row rv"><span class="rn">C</span><h3>The Service Professional</h3><p>People aren’t simply buying a service. They’re deciding whom to trust. Your website should make your expertise, approach and value easy to understand.</p></div>
+      <div class="row rv"><span class="rn">D</span><h3>The Growing Business</h3><p>What worked when you started may not reflect where your business is today. We help bring your digital presence closer to the business you’ve become.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="process">
+  <div class="wrap">
+    <div class="head rv"><span class="num">08</span><span class="lbl">Our Process</span><h2>From conversation to creation</h2></div>
+    <div class="proc">
+      <div class="proc-side">
+        <p class="statement sm rv">Thoughtful from the <em>first conversation.</em></p>
+        <figure class="ph rv"><img src="img/p6.jpg" alt="A tidy desk with a laptop, monitor and plant" loading="lazy"></figure>
       </div>
       <ol class="steps">
-        <li>
-          <h3><span>01.</span> Understand the business.</h3>
-          <p>We learn what you do, what makes you different and what you want your digital presence to achieve.</p>
-        </li>
-        <li>
-          <h3><span>02.</span> Find the opportunity.</h3>
-          <p>We review what’s already in place, identify gaps and establish what deserves attention first.</p>
-        </li>
-        <li>
-          <h3><span>03.</span> Shape the experience.</h3>
-          <p>We plan the structure, messaging and visual direction around the people you want to reach.</p>
-        </li>
-        <li>
-          <h3><span>04.</span> Bring it to life.</h3>
-          <p>Design, development, content and technical foundations come together in one cohesive experience.</p>
-        </li>
-        <li>
-          <h3><span>05.</span> Launch with intention.</h3>
-          <p>We test the essential details, prepare the website for real visitors and establish the next priorities where ongoing work is needed.</p>
-        </li>
+        <li class="rv"><span>01</span><div><h3>Understand the business.</h3><p>We learn what you do, what makes you different and what you want your digital presence to achieve.</p></div></li>
+        <li class="rv"><span>02</span><div><h3>Find the opportunity.</h3><p>We review what’s already in place, identify gaps and establish what deserves attention first.</p></div></li>
+        <li class="rv"><span>03</span><div><h3>Shape the experience.</h3><p>We plan the structure, messaging and visual direction around the people you want to reach.</p></div></li>
+        <li class="rv"><span>04</span><div><h3>Bring it to life.</h3><p>Design, development, content and technical foundations come together in one cohesive experience.</p></div></li>
+        <li class="rv"><span>05</span><div><h3>Launch with intention.</h3><p>We test the essential details, prepare the website for real visitors and establish the next priorities where ongoing work is needed.</p></div></li>
       </ol>
     </div>
-  </section>
+  </div>
+</section>
 
-  <section class="block review" id="review">
-    <div class="wrap">
-      <div class="review-card rev">
-        <div class="review-copy">
-          <p class="lbl">09 — FREE WEBSITE REVIEW</p>
-          <h2>BEFORE YOU INVEST</h2>
-          <div class="stanza">
-            <p>Maybe you don’t need a new website.</p>
-            <p>Maybe your current one needs clearer messaging.</p>
-            <p>Maybe customers can’t find the right service information.</p>
-            <p>Maybe your work isn’t being presented as well as it could be.</p>
-            <p>Or maybe it’s time for something completely different.</p>
-          </div>
-          <p class="resolve">Let’s find out before you spend money.</p>
+<section class="sec sand" id="review">
+  <div class="wrap">
+    <div class="head rv"><span class="num">09</span><span class="lbl">Free Website Review</span><h2>Before you invest</h2></div>
+    <div class="maybes rv">
+      <p>Maybe you don’t need a new website.</p>
+      <p>Maybe your current one needs clearer messaging.</p>
+      <p>Maybe customers can’t find the right service information.</p>
+      <p>Maybe your work isn’t being presented as well as it could be.</p>
+      <p>Or maybe it’s time for something completely different.</p>
+    </div>
+    <div class="review-grid">
+      <div class="rv">
+        <p class="statement sm">Let’s find out <em>before you spend money.</em></p>
+        <div class="prose">
           <p>Tell us about your business and share your website, if you have one.</p>
           <p>We’ll review the information available, highlight a few practical opportunities and explain what we’d prioritise.</p>
-          <p>No oversized proposal before we’ve understood the problem.</p>
-          <p>No pressure to purchase something you don’t need.</p>
-          <p>Just a useful starting point.</p>
+          <p>No oversized proposal before we’ve understood the problem.<br>No pressure to purchase something you don’t need.</p>
+          <p class="strong">Just a useful starting point.</p>
         </div>
-        <form id="review-form" action="#review" method="post">
-          <div class="field">
-            <label for="name">Name</label>
-            <input id="name" name="name" autocomplete="name" required>
-          </div>
-          <div class="field">
-            <label for="email">Email</label>
-            <input id="email" name="email" type="email" autocomplete="email" required>
-          </div>
-          <div class="field full">
-            <label for="website">Website</label>
-            <input id="website" name="website" type="text" inputmode="url" autocomplete="url">
-          </div>
-          <div class="field full">
-            <label for="message">Message</label>
-            <textarea id="message" name="message" rows="4"></textarea>
-          </div>
-          <div class="form-foot">
-            <p class="form-note">Front-end only. Nothing is sent.</p>
-            <button type="submit">Request Your Free Website Review →</button>
-            <p class="place">For Melbourne and Australian businesses.</p>
-            <p class="form-ok" id="form-ok" hidden tabindex="-1">Nothing was sent. Your details stay in this browser.</p>
-          </div>
-        </form>
       </div>
+      <form class="form rv" id="form" novalidate>
+        <label><span>Name</span><input name="name" autocomplete="name" required></label>
+        <label><span>Email</span><input type="email" name="email" autocomplete="email" required></label>
+        <label><span>Website</span><input name="website" placeholder="yourbusiness.com.au"></label>
+        <label><span>Message</span><textarea name="message" rows="4"></textarea></label>
+        <button class="btn dk" type="submit"><span>Request Your Free Website Review</span><b>→</b></button>
+        <p class="fnote">For Melbourne and Australian businesses.</p>
+        <p class="fnote ok" id="ok" hidden>Front-end only. Nothing was sent.</p>
+      </form>
     </div>
-  </section>
+  </div>
+</section>
 
-  <section class="finale" id="contact">
-    <div class="wrap rev">
-      <p class="lbl">10 — FINAL SECTION</p>
-      <h2>THE NEXT CHAPTER</h2>
-      <p class="line">You’ve done the hard work.</p>
-      <p class="line step">Let’s make sure people see it.</p>
-      <div class="prose">
-        <p>Your business has a story, a standard and a reason people choose it.</p>
-        <p>We’d like to help you communicate that with the same care you put into the work itself.</p>
-      </div>
-      <p class="signoff">LANE X STUDIO</p>
-      <p class="tag">Considered design. Clear strategy. A stronger digital presence.</p>
-      <a class="btn" href="#review">Start a Conversation →</a>
-    </div>
-  </section>
-</main>
-
-<footer>
+<section class="finale dark" id="contact">
   <div class="wrap">
-    <p class="wordmark">LANE <i>X</i><br> STUDIO</p>
-    <div class="foot">
-      <div>
-        <p>Independent digital studio based in Melbourne, Australia.</p>
-        <p class="disciplines">Websites / Search / Strategy / Content</p>
-      </div>
-      <div>
-        <p>Explore: <a href="#top">Home</a> · <a href="#expertise">Expertise</a> · <a href="#work">Selected Work</a> · <a href="#studio">Studio</a> · <a href="#contact">Contact</a></p>
-        <p>Connect: <a href="#review">Email</a> · Instagram · LinkedIn</p>
-        <p>Privacy Policy · Terms</p>
-      </div>
+    <div class="meta rv"><span>10 — Final Section</span><span>The Next Chapter</span></div>
+    <h2 class="display fin rv">You’ve done the hard work. <em>Let’s make sure people see it.</em></h2>
+    <div class="fin-grid">
+      <div class="prose rv"><p>Your business has a story, a standard and a reason people choose it.</p><p>We’d like to help you communicate that with the same care you put into the work itself.</p></div>
+      <div class="rv"><a class="btn lt big" href="#review"><span>Start a Conversation</span><b>→</b></a><p class="fin-tag">Considered design. Clear strategy. A stronger digital presence.</p></div>
     </div>
-    <p class="legal"><span>© 2026 Lane X Studio.</span></p>
+  </div>
+</section>
+</main>
+<footer class="foot dark">
+  <div class="wrap">
+    <div class="fcols">
+      <div><p>Independent digital studio based in Melbourne, Australia.</p><p class="muted">Websites / Search / Strategy / Content</p></div>
+      <div><p class="muted">Explore</p><a href="#top">Home</a><a href="#expertise">Expertise</a><a href="#work">Selected Work</a><a href="#studio">Studio</a><a href="#contact">Contact</a></div>
+      <div><p class="muted">Connect</p><a href="#review">Email</a><span>Instagram</span><span>LinkedIn</span></div>
+      <div><p class="muted">Legal</p><span>Privacy Policy</span><span>Terms</span></div>
+    </div>
+    <p class="wordmark"><span class="wm wm-foot" aria-label="Lane X Studio"><span class="w"><span class="lt">L</span><span class="lt">a</span><span class="lt">n</span><span class="lt">e</span></span><span class="lt xw"><svg class="xm" viewBox="0 0 100 100" aria-hidden="true"><line class="x1" x1="14" y1="10" x2="86" y2="90" pathLength="1"/><line class="x2" x1="86" y1="10" x2="14" y2="90" pathLength="1"/></svg></span><span class="w"><span class="lt">S</span><span class="lt">t</span><span class="lt">u</span><span class="lt">d</span><span class="lt">i</span><span class="lt">o</span></span></span></p>
+    <div class="legal"><span>© 2026 Lane X Studio.</span><a href="#top">Back to top ↑</a></div>
   </div>
 </footer>
-
-<noscript><style>.rev{opacity:1;transform:none}</style></noscript>
-<script>
-const menuBtn = document.querySelector('.menu-btn');
-const nav = document.querySelector('#site-nav');
-function setNav(open) {
-  document.body.classList.toggle('nav-open', open);
-  menuBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
-  menuBtn.textContent = open ? 'Close' : 'Menu';
-}
-menuBtn.addEventListener('click', () => setNav(!document.body.classList.contains('nav-open')));
-nav.addEventListener('click', (event) => { if (event.target.closest('a')) setNav(false); });
-document.addEventListener('keydown', (event) => { if (event.key === 'Escape') setNav(false); });
-
-const io = new IntersectionObserver((entries) => {
-  entries.forEach((entry) => {
-    if (!entry.isIntersecting) return;
-    entry.target.classList.add('on');
-    io.unobserve(entry.target);
-  });
-}, { threshold: 0.12 });
-document.querySelectorAll('.rev').forEach((el) => io.observe(el));
-
-const form = document.querySelector('#review-form');
-const ok = document.querySelector('#form-ok');
-form.addEventListener('submit', (event) => {
-  event.preventDefault();
-  if (!form.reportValidity()) return;
-  ok.hidden = false;
-  ok.focus();
-});
-</script>
+<div class="loader" aria-hidden="true"><div class="ldbg"></div><span class="wm ld-w" aria-label="Lane X Studio"><span class="w"><span class="lt">L</span><span class="lt">a</span><span class="lt">n</span><span class="lt">e</span></span><span class="lt xw"><svg class="xm" viewBox="0 0 100 100" aria-hidden="true"><line class="x1" x1="14" y1="10" x2="86" y2="90" pathLength="1"/><line class="x2" x1="86" y1="10" x2="14" y2="90" pathLength="1"/></svg></span><span class="w"><span class="lt">S</span><span class="lt">t</span><span class="lt">u</span><span class="lt">d</span><span class="lt">i</span><span class="lt">o</span></span></span><div class="ld-in"><span class="ld-n">00</span></div></div>
+<div class="cur" aria-hidden="true"></div>
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js" defer></script>
+<script src="main.js" defer></script>
 </body>
 </html>
